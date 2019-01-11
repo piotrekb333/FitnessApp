@@ -1,0 +1,14 @@
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\FitnessAppTests.deps.json
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\FitnessAppTests.runtimeconfig.json
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\FitnessAppTests.runtimeconfig.dev.json
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\FitnessAppTests.dll
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.1\FitnessAppTests.pdb
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.csprojAssemblyReference.cache
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.csproj.CoreCompileInputs.cache
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.AssemblyInfoInputs.cache
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.AssemblyInfo.cs
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.dll
+C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.1\FitnessAppTests.pdb

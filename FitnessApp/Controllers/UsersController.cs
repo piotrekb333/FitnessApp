@@ -38,7 +38,6 @@ namespace FitnessApp.Controllers
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
 
-            // return basic user info (without password) and token to store client side
             return Ok(user);
         }
 
