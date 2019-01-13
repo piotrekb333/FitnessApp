@@ -7,6 +7,7 @@ import { FooterComponent } from './shared/layout/footer.component';
 import { HeaderComponent } from './shared/layout/header.component';
 import { SharedModule } from './shared/shared.module'
 import { AppRoutingModule } from './app-routing.module';
+import { BMICalculatorModule } from './calculators/bmi-calculator/bmi-calculator.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     SharedModule,
     HomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BMICalculatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
