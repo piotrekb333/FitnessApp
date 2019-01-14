@@ -8,7 +8,7 @@ import { HeaderComponent } from './shared/layout/header.component';
 import { SharedModule } from './shared/shared.module'
 import { AppRoutingModule } from './app-routing.module';
 import { BMICalculatorModule } from './calculators/bmi-calculator/bmi-calculator.module';
-
+import { VideosModule } from './videos/videos.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import { BMICalculatorModule } from './calculators/bmi-calculator/bmi-calculator
     SharedModule,
     HomeModule,
     AppRoutingModule,
-    BMICalculatorModule
+    BMICalculatorModule,
+    VideosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

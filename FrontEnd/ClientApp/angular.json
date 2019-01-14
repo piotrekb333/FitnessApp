@@ -28,6 +28,12 @@
             ],
             "scripts": [
               "src/assets/scripts/jquery.js",
+              "src/assets/scripts/bootstrap.js",
+              "src/assets/scripts/jquery.easing.1.3.js",
+              "src/assets/scripts/jquery.ui.totop.js",
+              "src/assets/scripts/modernizr.js",
+              "src/assets/scripts/classie.js",
+              "src/assets/scripts/cbpAnimatedHeader.min.js",
               "src/assets/scripts/custom.js"
             ]
           },
