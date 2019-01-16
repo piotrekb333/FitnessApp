@@ -23,6 +23,7 @@ export class CalculatorService {
     const params = new HttpParams()
       .set('weight', cal.weight.toString())
       .set('height', cal.height.toString());
+    debugger;
     return this.http.get<CalculatorResult>('http://localhost:44369/api/calculator/bmi', {params});
   }
 }

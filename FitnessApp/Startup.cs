@@ -8,6 +8,7 @@ using DAL.Repositories.Implementations;
 using DAL.Repositories.Interfaces;
 using FitnessApp.Configuration;
 using FitnessApp.Services.Implementations;
+using FitnessApp.Services.Implementations.Calculators;
 using FitnessApp.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -56,6 +57,8 @@ namespace FitnessApp
 
             //-----SERVICES-----
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICalculatorFactory, CalculatorFactory>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +76,7 @@ namespace FitnessApp
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            loggerFactory.AddLog4Net();
+            //loggerFactory.AddLog4Net();
         }
     }
 }
