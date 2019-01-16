@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FitnessApp.Services.Implementations.Calculators;
 using FitnessApp.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Models.ServiceModels.Calculator;
 using System;
@@ -12,6 +13,7 @@ namespace FitnessApp.Controllers
 {
     [Produces("application/json")]
     [Route("api/calculator")]
+    [EnableCors("MyPolicy")]
     public class CalculatorController : Controller
     {
         private IMapper _mapper;

@@ -8,7 +8,7 @@ export interface Calculator {
 }
 
 export interface CalculatorResult {
-  BMIResult: number;
+  bmiResult: number;
 }
 
 @Injectable({
@@ -23,7 +23,6 @@ export class CalculatorService {
     const params = new HttpParams()
       .set('weight', cal.weight.toString())
       .set('height', cal.height.toString());
-    debugger;
-    return this.http.get<CalculatorResult>('http://localhost:44369/api/calculator/bmi', {params});
+    return this.http.get<CalculatorResult>('https://localhost:44369/api/calculator/bmi', {params});
   }
 }

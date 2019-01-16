@@ -9,7 +9,8 @@ import { CalculatorService, Calculator } from 'src/app/shared/services/calculato
   styleUrls: ['./bmi-calculator.component.css']
 })
 export class BMICalculatorComponent {
-  public calculatorModel: Calculator 
+  public calculatorModel: Calculator
+  public BMIResult: string;
   constructor(
     private calculatorService: CalculatorService    
   ) { }
@@ -17,11 +18,10 @@ export class BMICalculatorComponent {
     this.calculatorModel = {} as Calculator; 
   }
   async Calculate() {
-    debugger;
     await this.calculatorService
       .getBMIResult(this.calculatorModel)
       .subscribe(cal => {
-        var test = cal.BMIResult;
+        this.BMIResult = cal.bmiResult.toString();
       });
   }
 }

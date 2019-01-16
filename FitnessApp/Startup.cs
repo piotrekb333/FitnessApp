@@ -47,7 +47,9 @@ namespace FitnessApp
             {
                 mc.AddProfile(new MappingProfile());
             });
-
+            services.AddCors(options => options.AddPolicy("MyPolicy", p => p.AllowAnyOrigin()
+                                                            .AllowAnyMethod()
+                                                             .AllowAnyHeader()));
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -76,6 +78,7 @@ namespace FitnessApp
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCors("MyPolicy");
             //loggerFactory.AddLog4Net();
         }
     }
