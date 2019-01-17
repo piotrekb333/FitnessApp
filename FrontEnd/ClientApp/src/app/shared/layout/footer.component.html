@@ -45,8 +45,8 @@
           </p>
           <form>
             <div class="input-append">
-              <input class="span2" id="appendedInputButton" type="text">
-              <button class="btn btn-color" type="submit">Subscribe</button>
+              <input [(ngModel)]="newsletterModel.email" class="span2" id="txtNewsletter" name="txtNewsletter" type="text">
+              <button class="btn btn-color" (click)="SubscribeNewsletter()" type="submit">Subscribe</button>
             </div>
           </form>
           <ul class="social-network">

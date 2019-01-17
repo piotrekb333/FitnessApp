@@ -23,7 +23,7 @@ namespace FitnessAppTests.Controllers
             newsletterService.Setup(x => x.SubscribeNewsletter(It.IsAny<SubscribeNewsletterModel>())).Returns(true);
 
             NewsletterController controller = new NewsletterController(mockMapper.Object, newsletterService.Object);
-            var result = controller.PostNewsletterItem(new SubscribeNewsletterModel
+            var result = controller.Post(new SubscribeNewsletterModel
             {
                 Email="abc@wp.pl"
             });

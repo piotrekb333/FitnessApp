@@ -31,6 +31,7 @@
     <None Remove="ClientApp\src\app\home\home.module.ts" />
     <None Remove="ClientApp\src\app\shared\layout\footer.component.ts" />
     <None Remove="ClientApp\src\app\shared\layout\header.component.ts" />
+    <None Remove="ClientApp\src\app\shared\services\newsletter.service.ts" />
     <None Remove="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 
@@ -41,6 +42,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\home\home.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\layout\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\layout\header.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\services\newsletter.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 

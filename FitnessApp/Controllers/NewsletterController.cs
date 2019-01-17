@@ -25,7 +25,7 @@ namespace FitnessApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostNewsletterItem(SubscribeNewsletterModel model)
+        public IActionResult Post(SubscribeNewsletterModel model)
         {
             var result=_newsletterService.SubscribeNewsletter(model);
             if (result)
