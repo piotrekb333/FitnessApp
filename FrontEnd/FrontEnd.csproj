@@ -50,7 +50,6 @@
     <Folder Include="ClientApp\src\app\calculators\bmi-calculator\" />
     <Folder Include="ClientApp\src\assets\img\" />
     <Folder Include="ClientApp\src\assets\scripts\" />
-    <Folder Include="ClientApp\src\assets\styles\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

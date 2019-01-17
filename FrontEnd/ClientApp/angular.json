@@ -34,7 +34,8 @@
               "src/assets/scripts/modernizr.js",
               "src/assets/scripts/classie.js",
               "src/assets/scripts/cbpAnimatedHeader.min.js",
-              "src/assets/scripts/custom.js"
+              "src/assets/scripts/custom.js",
+              "src/assets/scripts/jquery-confirm.js"
             ]
           },
           "configurations": {

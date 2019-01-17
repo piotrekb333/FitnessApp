@@ -43,10 +43,14 @@
           <p>
             Enter your email to subcribe newsletter
           </p>
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="SubscribeNewsletter()">
             <div class="input-append">
-              <input [(ngModel)]="newsletterModel.email" class="span2" id="txtNewsletter" name="txtNewsletter" type="text">
-              <button class="btn btn-color" (click)="SubscribeNewsletter()" type="submit">Subscribe</button>
+              <input [(ngModel)]="newsletterModel.email" formControlName="txtNewsletter" class="span2" id="txtNewsletter" name="txtNewsletter" type="text" [ngClass]="{ 'is-invalid': submitted && f.txtNewsletter.errors }">
+              <div *ngIf="submitted && f.txtNewsletter.errors" class="invalid-feedback">
+                <div class="validation-error" *ngIf="f.txtNewsletter.errors.required">Email is required</div>
+                <div class="validation-error" *ngIf="f.txtNewsletter.errors.email">Email must be a valid email address</div>
+              </div>
+              <button class="btn btn-color" type="submit">Subscribe</button>
             </div>
           </form>
           <ul class="social-network">
