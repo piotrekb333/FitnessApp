@@ -12,7 +12,7 @@ namespace FitnessApp.Services.Implementations.Calculators
         public CalculatorResultModel Calculate(CalculatorModel model)
         {
             CalculatorResultModel resultModel = new CalculatorResultModel();
-            double heightParse = model.Height / 100;
+            double heightParse = model.Height / 100d;
             resultModel.BMIResult = model.Weight / Math.Pow(heightParse, 2);
             return resultModel;
         }

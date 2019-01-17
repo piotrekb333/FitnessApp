@@ -24,14 +24,14 @@ namespace FitnessAppTests.Controllers
             calculatorFactory.Setup(x => x.ChooseCalculator(It.IsAny<CalculatorEnum.Calculators>())).Returns(calculator.Object);
 
             CalculatorController controller = new CalculatorController(mockMapper.Object, calculatorFactory.Object);
-            var result=controller.Bmi(new Models.ServiceModels.Calculator.CalculatorModel
+            var result = controller.Bmi(new Models.ServiceModels.Calculator.CalculatorModel
             {
-                Age=15,
-                Gender=Models.Enums.GenderEnum.Gender.Man,
-                Height=1,
-                Hip=1,
-                Waist=1,
-                Weight=1
+                Age = 15,
+                Gender = Models.Enums.GenderEnum.Gender.Man,
+                Height = 1,
+                Hip = 1,
+                Waist = 1,
+                Weight = 1
             });
             Assert.IsType<OkObjectResult>(result);
         }
