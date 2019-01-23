@@ -15,5 +15,7 @@ namespace Models.Entities
         public string Token { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
