@@ -20,7 +20,7 @@ namespace FitnessAppTests.Controllers
         {
             Mock<IMapper> mockMapper = new Mock<IMapper>();
             Mock<INewsletterService> newsletterService = new Mock<INewsletterService>();
-            newsletterService.Setup(x => x.SubscribeNewsletter(It.IsAny<SubscribeNewsletterModel>())).Returns(true);
+            newsletterService.Setup(x => x.SubscribeNewsletter(It.IsAny<SubscribeNewsletterModel>())).Returns(Models.Enums.ResultEnum.ServiceResult.Ok);
 
             NewsletterController controller = new NewsletterController(mockMapper.Object, newsletterService.Object);
             var result = controller.Post(new SubscribeNewsletterModel

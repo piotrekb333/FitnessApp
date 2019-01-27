@@ -2,11 +2,13 @@
 using DAL.Repositories.Interfaces;
 using FitnessApp.Services.Interfaces;
 using Models.Entities;
+using Models.Enums;
 using Models.ServiceModels.Calculator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Models.Enums.ResultEnum;
 
 namespace FitnessApp.Services.Implementations
 {
@@ -20,12 +22,12 @@ namespace FitnessApp.Services.Implementations
             _newsletterRepository = newsletterRepository;
         }
 
-        public bool SubscribeNewsletter(SubscribeNewsletterModel model)
+        public ServiceResult SubscribeNewsletter(SubscribeNewsletterModel model)
         {
             Newsletter newsletterModel = _mapper.Map<Newsletter>(model);
             newsletterModel.DateCreated = DateTime.UtcNow;
             _newsletterRepository.Create(newsletterModel);
-            return true;
+            return ServiceResult.Ok;
         }
     }
 }

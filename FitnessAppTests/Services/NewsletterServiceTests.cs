@@ -26,7 +26,7 @@ namespace FitnessAppTests.Services
                 Email = "abc@wp.pl"
             });
 
-            Assert.True(result);
+            Assert.True(result==Models.Enums.ResultEnum.ServiceResult.Ok);
         }
     }
 }

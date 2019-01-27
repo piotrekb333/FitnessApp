@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using FitnessApp.Services.Implementations.Calculators;
 using FitnessApp.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Models.ServiceModels.Calculator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using static Models.Enums.ResultEnum;
 
 namespace FitnessApp.Controllers
 {
@@ -28,7 +24,7 @@ namespace FitnessApp.Controllers
         public IActionResult Post(SubscribeNewsletterModel model)
         {
             var result=_newsletterService.SubscribeNewsletter(model);
-            if (result)
+            if (result==ServiceResult.Ok)
                 return Ok();
             else
                 return BadRequest();

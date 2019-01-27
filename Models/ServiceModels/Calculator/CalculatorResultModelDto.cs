@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.DtoModels
+namespace Models.ServiceModels.Calculator
 {
     public class CalculatorResultModelDto
     {
