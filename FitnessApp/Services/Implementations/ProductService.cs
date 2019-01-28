@@ -16,15 +16,18 @@ namespace FitnessApp.Services.Implementations
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
-        public ProductService(IMapper mapper, IProductRepository productRepository)
+        private readonly ITimeProvider _timeProvider;
+
+        public ProductService(IMapper mapper, IProductRepository productRepository, ITimeProvider timeProvider)
         {
             _mapper = mapper;
             _productRepository = productRepository;
+            _timeProvider = timeProvider;
         }
         public ServiceResult AddProduct(AddProductModel model)
         {
             Product productModel = _mapper.Map<Product>(model);
-            productModel.DateCreated = DateTime.UtcNow;
+            productModel.DateCreated = _timeProvider.UtcNow;
             return ServiceResult.Ok;
         }
         public ServiceResult UpdateProduct(UpdateProductModel model)
@@ -33,7 +36,7 @@ namespace FitnessApp.Services.Implementations
             if (product == null)
                 return ServiceResult.NotFound;
             Product productModel = _mapper.Map<UpdateProductModel, Product>(model, product);
-            productModel.DateModified = DateTime.UtcNow;
+            productModel.DateModified = _timeProvider.UtcNow;
             _productRepository.Update(productModel);
             return ServiceResult.Ok;
         }

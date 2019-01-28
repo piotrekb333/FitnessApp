@@ -16,16 +16,18 @@ namespace FitnessApp.Services.Implementations
     {
         private readonly INewsletterRepository _newsletterRepository;
         private readonly IMapper _mapper;
-        public NewsletterService(IMapper mapper, INewsletterRepository newsletterRepository)
+        private readonly ITimeProvider _timeProvider;
+        public NewsletterService(IMapper mapper, INewsletterRepository newsletterRepository, ITimeProvider timeProvider)
         {
             _mapper = mapper;
             _newsletterRepository = newsletterRepository;
+            _timeProvider = timeProvider;
         }
 
         public ServiceResult SubscribeNewsletter(SubscribeNewsletterModel model)
         {
             Newsletter newsletterModel = _mapper.Map<Newsletter>(model);
-            newsletterModel.DateCreated = DateTime.UtcNow;
+            newsletterModel.DateCreated = _timeProvider.UtcNow;
             _newsletterRepository.Create(newsletterModel);
             return ServiceResult.Ok;
         }

@@ -19,3 +19,24 @@ C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\Fitness
 C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.csproj.CopyComplete
 C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.dll
 C:\Users\piotr\OneDrive\Documents\Visual Studio 2017\Projects\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.pdb
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessAppTests.deps.json
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessAppTests.runtimeconfig.json
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessAppTests.runtimeconfig.dev.json
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessAppTests.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessAppTests.pdb
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\DAL.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessApp.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\Models.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\FitnessApp.pdb
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\DAL.pdb
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\bin\Debug\netcoreapp2.2\Models.pdb
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.csprojAssemblyReference.cache
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.csproj.CoreCompileInputs.cache
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.AssemblyInfoInputs.cache
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.AssemblyInfo.cs
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.csproj.CopyComplete
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.dll
+C:\Users\softwarehut\source\repos\FitnessApp\FitnessAppTests\obj\Debug\netcoreapp2.2\FitnessAppTests.pdb

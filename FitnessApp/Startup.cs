@@ -62,6 +62,8 @@ namespace FitnessApp
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICalculatorFactory, CalculatorFactory>();
             services.AddTransient<INewsletterService, NewsletterService>();
+            services.AddTransient<ITimeProvider, DateTimeProvider>();
+            services.AddTransient<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
