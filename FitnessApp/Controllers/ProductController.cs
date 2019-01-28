@@ -48,7 +48,6 @@ namespace FitnessApp.Controllers
 
         }
 
-
         [HttpDelete]
         public IActionResult Delete(int id)
         {
@@ -59,6 +58,15 @@ namespace FitnessApp.Controllers
                 return NoContent();
             else
                 return BadRequest();
+
+        }
+
+        [HttpGet]
+        public IActionResult GetProductsGroupsByUserId()
+        {
+            int userId = -1;//TODO
+            var result = _productService.GetProductsGroupsByUserId(userId);
+            return Ok(result);
 
         }
     }
