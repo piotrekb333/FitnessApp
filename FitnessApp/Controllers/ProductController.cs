@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitnessApp.Helpers;
 using FitnessApp.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -61,7 +62,7 @@ namespace FitnessApp.Controllers
         [HttpGet]
         public IActionResult GetProductsGroupsByUserId()
         {
-            int userId = -1;//TODO
+            var userId = User.CurrentUserId();
             var result = _productService.GetProductsGroupsByUserId(userId);
             return Ok(result);
         }
