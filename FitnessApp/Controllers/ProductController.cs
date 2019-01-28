@@ -32,7 +32,6 @@ namespace FitnessApp.Controllers
                 return Ok();
             else
                 return BadRequest();
-
         }
 
         [HttpPut]
@@ -45,7 +44,6 @@ namespace FitnessApp.Controllers
                 return NoContent();
             else
                 return BadRequest();
-
         }
 
         [HttpDelete]
@@ -58,7 +56,6 @@ namespace FitnessApp.Controllers
                 return NoContent();
             else
                 return BadRequest();
-
         }
 
         [HttpGet]
@@ -67,7 +64,6 @@ namespace FitnessApp.Controllers
             int userId = -1;//TODO
             var result = _productService.GetProductsGroupsByUserId(userId);
             return Ok(result);
-
         }
     }
 }
