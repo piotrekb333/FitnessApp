@@ -66,7 +66,7 @@ namespace FitnessApp.Services.Implementations
             var products = _productRepository.GetByCondition(m => m.UserId == userId);
             var productsGroup = products
                 .GroupBy(m => new { m.DateUser.Value.Year, m.DateUser.Value.Month, m.DateUser.Value.Day })
-                .Select(m => new ProductGroupsDto { Date = new DateTime(m.Key.Year, m.Key.Month, m.Key.Day), Products = _mapper.Map<IEnumerable<ProductDto>>(m) });
+                .Select(m => new ProductGroupsDto { Date = new DateTime(m.Key.Year, m.Key.Month, m.Key.Day), Products = _mapper.Map<IEnumerable<ProductDto>>(m).OrderBy(z=>z.DateUser) });
             return productsGroup;
         }
     }

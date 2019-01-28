@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using DAL.Context;
@@ -10,6 +11,7 @@ using FitnessApp.Configuration;
 using FitnessApp.Services.Implementations;
 using FitnessApp.Services.Implementations.Calculators;
 using FitnessApp.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +21,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace FitnessApp
@@ -43,6 +46,23 @@ namespace FitnessApp
                     mysqlOptions.ServerVersion(new Version(5, 5, 0), ServerType.MySql); // replace with your Server Version and Type
                 }
             ));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+
+                            ValidIssuer = "http://localhost:5000",
+                            ValidAudience = "http://localhost:5000",
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKeySuper@345"))
+                        };
+                    });
+
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
@@ -57,6 +77,8 @@ namespace FitnessApp
             //-----REPOSITORIES-----
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<INewsletterRepository, NewsletterRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+
 
             //-----SERVICES-----
             services.AddTransient<IUserService, UserService>();
@@ -82,6 +104,7 @@ namespace FitnessApp
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseCors("MyPolicy");
+            app.UseAuthentication();
             //loggerFactory.AddLog4Net();
         }
     }
