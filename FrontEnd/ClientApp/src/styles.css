@@ -1,11 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "src/assets/styles/bootstrap.css";
-@import "src/assets/styles/bootstrap-responsive.css";
-@import "src/assets/styles/docs.css";
-@import "src/assets/styles/font-awesome.css";
-@import "src/assets/styles/animate.css";
-@import "src/assets/styles/style.css";
-@import "src/assets/styles/default.css";
-@import "src/assets/styles/jquery-confirm.css";
-@import "src/assets/styles/global.css";
+@import "src/assets/styles/font-awesome.min.css";
+@import "src/assets/styles/animate.min.css";
+@import "src/assets/styles/linearicons.css";
+@import "src/assets/styles/magnific-popup.css";
+@import "src/assets/styles/main.css";
+@import "src/assets/styles/nice-select.css";
+@import "src/assets/styles/owl.carousel.css";
