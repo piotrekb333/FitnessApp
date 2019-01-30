@@ -1,4 +1,5 @@
 ﻿using Models.DtoModels;
+using Models.ServiceModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace FitnessApp.Services.Interfaces
 {
     public interface IUserService
     {
-        UserDto Authenticate(string username, string password);
+        UserAuthenticateResult Authenticate(string username, string password);
     }
 }

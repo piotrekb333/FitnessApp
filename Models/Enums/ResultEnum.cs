@@ -6,6 +6,6 @@ namespace Models.Enums
 {
     public static class ResultEnum
     {
-        public enum ServiceResult { Ok, NotFound,Error };
+        public enum ServiceResult { Ok, NotFound,Error,BadRequest };
     }
 }

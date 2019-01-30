@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Models.DtoModels;
 using Models.Entities;
+using Models.ServiceModels.User;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,20 +29,28 @@ namespace FitnessApp.Services.Implementations
             _appSettings = appSettings.Value;
         }
 
-        public UserDto Authenticate(string username, string password)
+        public UserAuthenticateResult Authenticate(string username, string password)
         {
+            UserAuthenticateResult result = new UserAuthenticateResult();
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                return null;
-
+            {
+                result.Result = Models.Enums.ResultEnum.ServiceResult.BadRequest;
+                return result;
+            }
             var user = _userRepository.GetOneByCondition(x => x.Username == username);
 
-            // check if username exists
             if (user == null)
-                return null;
+            {
+                result.Result = Models.Enums.ResultEnum.ServiceResult.NotFound;
+                return result;
+            }
 
             // check if password is correct
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-                return null;
+            {
+                result.Result = Models.Enums.ResultEnum.ServiceResult.BadRequest;
+                return result;
+            }
 
             // authentication successful
             var userDto = _mapper.Map<UserDto>(user);
@@ -60,15 +69,13 @@ namespace FitnessApp.Services.Implementations
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
             userDto.Token = tokenString;
-            return userDto;
+            result.User = userDto;
+            result.Result = Models.Enums.ResultEnum.ServiceResult.Ok;
+            return result;
         }
 
         public User Create(User user, string password)
         {
-            // validation
-            //if (string.IsNullOrWhiteSpace(password))
-              //  throw new AppException("Password is required");
-
             //if (_context.Users.Any(x => x.Username == user.Username))
                // throw new AppException("Username \"" + user.Username + "\" is already taken");
 
