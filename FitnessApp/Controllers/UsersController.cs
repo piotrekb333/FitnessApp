@@ -8,7 +8,6 @@ using FitnessApp.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Models.DtoModels;
 using Models.ServiceModels.User;
 using static Models.Enums.ResultEnum;
 
@@ -39,6 +38,15 @@ namespace FitnessApp.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
 
             return Ok(user);
+        }
+
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+            var result = _userService.GetUser(id);
+            if (result == null)
+                return NotFound();
+            return Ok(result);
         }
 
         [HttpPost]

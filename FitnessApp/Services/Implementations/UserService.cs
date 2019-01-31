@@ -4,7 +4,6 @@ using FitnessApp.Configuration;
 using FitnessApp.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Models.DtoModels;
 using Models.Entities;
 using Models.ServiceModels.User;
 using System;
@@ -130,6 +129,15 @@ namespace FitnessApp.Services.Implementations
             _userRepository.Delete(user);
             _userRepository.Save();
             return ServiceResult.Ok;
+        }
+
+        public UserDto GetUser(int id)
+        {
+            var user = _userRepository.GetById(id);
+            if (user == null)
+                return null;
+            UserDto userModel = _mapper.Map<UserDto>(user);
+            return userModel;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

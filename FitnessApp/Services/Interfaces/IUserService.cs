@@ -1,5 +1,4 @@
-﻿using Models.DtoModels;
-using Models.ServiceModels.User;
+﻿using Models.ServiceModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +13,6 @@ namespace FitnessApp.Services.Interfaces
         ServiceResult AddUser(AddUserModel user);
         ServiceResult UpdateUser(UpdateUserModel userParam);
         ServiceResult DeleteUser(int id);
+        UserDto GetUser(int id);
     }
 }
