@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Models.DtoModels;
 using Models.Entities;
 using Models.ServiceModels.Calculator;
 using Models.ServiceModels.Product;
+using Models.ServiceModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;

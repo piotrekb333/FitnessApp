@@ -10,7 +10,7 @@ namespace Models.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
         public bool Enabled { get; set; }
         public int? ArticleCategoryId { get; set; }
 

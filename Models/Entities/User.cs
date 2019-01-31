@@ -13,6 +13,8 @@ namespace Models.Entities
         public string Password { get; set; }
         public string Email { get; set; }
         public string Token { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 

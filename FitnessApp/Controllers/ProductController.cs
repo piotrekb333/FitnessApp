@@ -24,7 +24,7 @@ namespace FitnessApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(AddProductModel model)
+        public IActionResult Post([FromBody]AddProductModel model)
         {
             var result = _productService.AddProduct(model);
             if (result == ServiceResult.Ok)
@@ -34,7 +34,7 @@ namespace FitnessApp.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(UpdateProductModel model)
+        public IActionResult Put([FromBody]UpdateProductModel model)
         {
             var result = _productService.UpdateProduct(model);
             if (result == ServiceResult.Ok)

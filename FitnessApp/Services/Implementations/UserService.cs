@@ -22,11 +22,14 @@ namespace FitnessApp.Services.Implementations
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        public UserService(IOptions<AppSettings> appSettings, IMapper mapper, IUserRepository userRepository)
+        private readonly ITimeProvider _timeProvider;
+
+        public UserService(IOptions<AppSettings> appSettings, IMapper mapper, IUserRepository userRepository, ITimeProvider timeProvider)
         {
             _mapper = mapper;
             _userRepository = userRepository;
             _appSettings = appSettings.Value;
+            _timeProvider = timeProvider;
         }
 
         public UserAuthenticateResult Authenticate(string username, string password)
@@ -41,14 +44,14 @@ namespace FitnessApp.Services.Implementations
 
             if (user == null)
             {
-                result.Result = Models.Enums.ResultEnum.ServiceResult.NotFound;
+                result.Result = Models.Enums.ResultEnum.ServiceResult.Invalid;
                 return result;
             }
 
             // check if password is correct
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
             {
-                result.Result = Models.Enums.ResultEnum.ServiceResult.BadRequest;
+                result.Result = Models.Enums.ResultEnum.ServiceResult.Invalid;
                 return result;
             }
 
@@ -87,7 +90,7 @@ namespace FitnessApp.Services.Implementations
 
             userModel.PasswordHash = passwordHash;
             userModel.PasswordSalt = passwordSalt;
-
+            userModel.DateCreated = _timeProvider.UtcNow;
             _userRepository.Create(userModel);
             _userRepository.Save();
 
@@ -115,7 +118,7 @@ namespace FitnessApp.Services.Implementations
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
             }
-
+            userModel.DateModified = _timeProvider.UtcNow;
             _userRepository.Update(userModel);
             _userRepository.Save();
             return ServiceResult.Ok;

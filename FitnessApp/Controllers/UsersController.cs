@@ -32,12 +32,17 @@ namespace FitnessApp.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]UserDto userDto)
         {
-            var user = _userService.Authenticate(userDto.Username, userDto.Password);
+            var authenticateResult = _userService.Authenticate(userDto.Username, userDto.Password);
+            if (authenticateResult.Result == ServiceResult.BadRequest)
+            {
+                return BadRequest();
+            }
+            if (authenticateResult.Result == ServiceResult.Invalid)
+            {
+                return Unauthorized();
+            }
 
-            if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
-            return Ok(user);
+            return Ok(authenticateResult.User);
         }
 
         [HttpGet]
