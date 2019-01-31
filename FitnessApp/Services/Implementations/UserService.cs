@@ -14,6 +14,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using static Models.Enums.ResultEnum;
 
 namespace FitnessApp.Services.Implementations
 {
@@ -22,7 +23,7 @@ namespace FitnessApp.Services.Implementations
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
-        public UserService(IOptions<AppSettings> appSettings,IMapper mapper, IUserRepository userRepository)
+        public UserService(IOptions<AppSettings> appSettings, IMapper mapper, IUserRepository userRepository)
         {
             _mapper = mapper;
             _userRepository = userRepository;
@@ -74,64 +75,61 @@ namespace FitnessApp.Services.Implementations
             return result;
         }
 
-        public User Create(User user, string password)
+        public ServiceResult AddUser(AddUserModel user)
         {
-            //if (_context.Users.Any(x => x.Username == user.Username))
-               // throw new AppException("Username \"" + user.Username + "\" is already taken");
+            User userModel = _mapper.Map<User>(user);
+            if (_userRepository.GetByCondition(x => x.Username == user.Username) != null)
+            {
+                return ServiceResult.Exists;
+            }
 
             byte[] passwordHash, passwordSalt;
-            CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
 
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            userModel.PasswordHash = passwordHash;
+            userModel.PasswordSalt = passwordSalt;
 
-            _userRepository.Create(user);
+            _userRepository.Create(userModel);
             _userRepository.Save();
 
-            return user;
+            return ServiceResult.Ok;
         }
 
-        public void Update(User userParam, string password = null)
+        public ServiceResult UpdateUser(UpdateUserModel userParam)
         {
             var user = _userRepository.GetById(userParam.Id);
 
             if (user == null)
-                return;
+                return ServiceResult.NotFound;
 
             if (userParam.Username != user.Username)
             {
-                // username has changed so check if the new username is already taken
                 if (_userRepository.GetOneByCondition(x => x.Username == userParam.Username) != null)
-                    return;
+                    return ServiceResult.NotFound;
             }
+            User userModel = _mapper.Map<UpdateUserModel, User>(userParam, user);
 
-            // update user properties
-            user.FirstName = userParam.FirstName;
-            user.LastName = userParam.LastName;
-            user.Username = userParam.Username;
-
-            // update password if it was entered
-            if (!string.IsNullOrWhiteSpace(password))
+            if (!string.IsNullOrWhiteSpace(userParam.Password))
             {
                 byte[] passwordHash, passwordSalt;
-                CreatePasswordHash(password, out passwordHash, out passwordSalt);
-
+                CreatePasswordHash(userParam.Password, out passwordHash, out passwordSalt);
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
             }
 
-            _userRepository.Update(user);
+            _userRepository.Update(userModel);
             _userRepository.Save();
+            return ServiceResult.Ok;
         }
 
-        public void Delete(int id)
+        public ServiceResult DeleteUser(int id)
         {
             var user = _userRepository.GetById(id);
-            if (user != null)
-            {
-                _userRepository.Delete(user);
-                _userRepository.Save();
-            }
+            if (user == null)
+                return ServiceResult.NotFound;
+            _userRepository.Delete(user);
+            _userRepository.Save();
+            return ServiceResult.Ok;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

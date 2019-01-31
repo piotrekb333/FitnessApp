@@ -17,13 +17,12 @@ namespace FitnessAppTests.Controllers
         [Fact]
         public void BmiTest()
         {
-            Mock<IMapper> mockMapper = new Mock<IMapper>();
             Mock<ICalculatorFactory> calculatorFactory = new Mock<ICalculatorFactory>();
             Mock<ICalculator> calculator = new Mock<ICalculator>();
             calculator.Setup(x => x.Calculate(It.IsAny<CalculatorModel>())).Returns(new CalculatorResultModel());
             calculatorFactory.Setup(x => x.ChooseCalculator(It.IsAny<CalculatorEnum.Calculators>())).Returns(calculator.Object);
 
-            CalculatorController controller = new CalculatorController(mockMapper.Object, calculatorFactory.Object);
+            CalculatorController controller = new CalculatorController(calculatorFactory.Object);
             var result = controller.Bmi(new Models.ServiceModels.Calculator.CalculatorModel
             {
                 Age = 15,

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Models.DtoModels;
+using Models.ServiceModels.User;
+using static Models.Enums.ResultEnum;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,14 +20,12 @@ namespace FitnessApp.Controllers
     [Route("api/Users")]
     public class UsersController : Controller
     {
-        private IUserService _userService;
-        private IMapper _mapper;
+        private readonly IUserService _userService;
         private readonly AppSettings _appSettings;
 
-        public UsersController(IUserService userService, IMapper mapper, IOptions<AppSettings> appSettings)
+        public UsersController(IUserService userService, IOptions<AppSettings> appSettings)
         {
             _userService = userService;
-            _mapper = mapper;
             _appSettings = appSettings.Value;
         }
 
@@ -41,6 +41,38 @@ namespace FitnessApp.Controllers
             return Ok(user);
         }
 
+        [HttpPost]
+        public IActionResult Post(AddUserModel model)
+        {
+            var result = _userService.AddUser(model);
+            if (result == ServiceResult.Ok)
+                return Ok();
+            else
+                return BadRequest();
+        }
 
+        [HttpPut]
+        public IActionResult Put(UpdateUserModel model)
+        {
+            var result = _userService.UpdateUser(model);
+            if (result == ServiceResult.Ok)
+                return Ok();
+            else if (result == ServiceResult.NotFound)
+                return NoContent();
+            else
+                return BadRequest();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var result = _userService.DeleteUser(id);
+            if (result == ServiceResult.Ok)
+                return Ok();
+            else if (result == ServiceResult.NotFound)
+                return NoContent();
+            else
+                return BadRequest();
+        }
     }
 }

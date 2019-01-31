@@ -12,11 +12,9 @@ namespace FitnessApp.Controllers
     [EnableCors("MyPolicy")]
     public class NewsletterController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly INewsletterService _newsletterService;
-        public NewsletterController(IMapper mapper, INewsletterService newsletterService)
+        public NewsletterController(INewsletterService newsletterService)
         {
-            _mapper = mapper;
             _newsletterService = newsletterService;
         }
 

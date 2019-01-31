@@ -14,11 +14,9 @@ namespace FitnessApp.Controllers
     [EnableCors("MyPolicy")]
     public class ArticleController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly IArticleService _articleService;
-        public ArticleController(IMapper mapper, IArticleService articleService)
+        public ArticleController(IArticleService articleService)
         {
-            _mapper = mapper;
             _articleService = articleService;
         }
 

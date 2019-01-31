@@ -16,11 +16,9 @@ namespace FitnessApp.Controllers
     [EnableCors("MyPolicy")]
     public class CalculatorController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly ICalculatorFactory _calculatorFactory;
-        public CalculatorController(IMapper mapper, ICalculatorFactory calculatorFactory)
+        public CalculatorController(ICalculatorFactory calculatorFactory)
         {
-            _mapper = mapper;
             _calculatorFactory = calculatorFactory;
         }
 
