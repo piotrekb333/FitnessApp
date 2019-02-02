@@ -21,4 +21,9 @@ export class ArticlesService {
     return this.http.get('${this.config.apiEndpoint}/articles');
   }
 
+  getArticleById(id: string) {
+    const params = new HttpParams()
+      .set('id', id.toString())
+    return this.http.get('${this.config.apiEndpoint}/articles', { params });
+  }
 }

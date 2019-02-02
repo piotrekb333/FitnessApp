@@ -52,7 +52,6 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\calculators\bmi-calculator\" />
-    <Folder Include="ClientApp\src\app\articles\" />
     <Folder Include="ClientApp\src\assets\img\" />
     <Folder Include="ClientApp\src\assets\scripts\" />
   </ItemGroup>
