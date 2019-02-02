@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BMICalculatorModule } from './calculators/bmi-calculator/bmi-calculator.module';
 import { WHRCalculatorModule } from './calculators/whr-calculator/whr-calculator.module';
 import { VideosModule } from './videos/videos.module';
+import { ArticlesModule } from './articles/articles.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { VideosModule } from './videos/videos.module';
     AppRoutingModule,
     BMICalculatorModule,
     WHRCalculatorModule,
-    VideosModule
+    VideosModule,
+    ArticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

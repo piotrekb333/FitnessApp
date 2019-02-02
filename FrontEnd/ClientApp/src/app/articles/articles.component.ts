@@ -1,22 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticlesService, Article } from 'src/app/shared/services/articles.service';
 
-
 @Component({
-  selector: 'app-articler-page',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  selector: 'app-articles-page',
+  templateUrl: './articles.component.html',
+  styleUrls: ['./articles.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticlesComponent {
   public articleModel: Article
-
+  private articles: Array<Article> = [];
   constructor(
-    private articlesService: ArticlesService    
+    private articlesService: ArticlesService
   ) { }
   ngOnInit() {
-    this.articleModel = {} as Article; 
+    this.articleModel = {} as Article;
+    //this.getAllEnabledArticles();
   }
+
+
+  public getAllEnabledArticles() {
+    this.articlesService.getAllEnabledArticles().subscribe((data: Array<Article>) => {
+      this.articles = data;
+      console.log(data);
+    });
+  }
+
   /*
   async Calculate() {
     await this.articleService

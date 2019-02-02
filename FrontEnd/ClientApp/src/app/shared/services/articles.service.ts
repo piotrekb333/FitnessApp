@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-
+import { APP_CONFIG, AppConfig } from 'src/app/app-config.module';
 export interface Article {
   email: string;
 }
@@ -11,9 +11,14 @@ export interface Article {
 })
 
 export class ArticlesService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig){}
 
-  postNewsletter(article: Article) {
-    return this.http.post('https://localhost:44369/api/newsletter', article);
+  postArticle(article: Article) {
+    return this.http.post('${this.config.apiEndpoint}/articles', article);
   }
+
+  getAllEnabledArticles() {
+    return this.http.get('${this.config.apiEndpoint}/articles');
+  }
+
 }
