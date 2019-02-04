@@ -54,7 +54,7 @@ namespace FitnessApp.Services.Implementations
             return ServiceResult.Ok;
         }
 
-        public IEnumerable<ProductModel> GetProductsByUserId(int userId)
+        public IEnumerable<ProductDto> GetProductsByUserId(int userId)
         {
             var products = _productRepository.GetByCondition(m => m.UserId == userId);
             IEnumerable<ProductDto> productsDto = _mapper.Map<IEnumerable<ProductDto>>(products);

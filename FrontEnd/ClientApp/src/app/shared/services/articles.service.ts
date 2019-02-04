@@ -18,12 +18,12 @@ export class ArticlesService {
   }
 
   getAllEnabledArticles() {
-    return this.http.get('${this.config.apiEndpoint}/articles');
+    return this.http.get(this.config.apiEndpoint+'/articles');
   }
 
   getArticleById(id: string) {
     const params = new HttpParams()
       .set('id', id.toString())
-    return this.http.get('${this.config.apiEndpoint}/articles', { params });
+    return this.http.get(this.config.apiEndpoint+'/articles', { params });
   }
 }

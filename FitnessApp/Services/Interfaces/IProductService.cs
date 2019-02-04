@@ -12,7 +12,7 @@ namespace FitnessApp.Services.Interfaces
         ServiceResult AddProduct(AddProductModel model);
         ServiceResult UpdateProduct(UpdateProductModel model);
         ServiceResult DeleteProduct(int id);
-        IEnumerable<ProductModel>  GetProductsByUserId(int userId);
+        IEnumerable<ProductDto> GetProductsByUserId(int userId);
         IEnumerable<ProductGroupsDto> GetProductsGroupsByUserId(int userId);
     }
 }
