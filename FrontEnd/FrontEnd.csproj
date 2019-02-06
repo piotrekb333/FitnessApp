@@ -35,6 +35,7 @@
     <None Remove="ClientApp\src\app\shared\services\articleCategory.service.ts" />
     <None Remove="ClientApp\src\app\shared\services\articles.service.ts" />
     <None Remove="ClientApp\src\app\shared\services\newsletter.service.ts" />
+    <None Remove="ClientApp\src\app\shared\services\product.service.ts" />
     <None Remove="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 
@@ -49,6 +50,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\shared\services\articleCategory.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\services\articles.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\services\newsletter.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\services\product.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 

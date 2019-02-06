@@ -57,7 +57,7 @@ namespace FitnessApp.Controllers
                 return BadRequest();
         }
 
-        [HttpGet]
+        [HttpGet("productsGroupsByUserId")]
         public IActionResult GetProductsGroupsByUserId()
         {
             var userId = User.CurrentUserId();
