@@ -13,7 +13,7 @@ namespace Models.Entities
         public DateTime? DateModified { get; set; }
         public bool Enabled { get; set; }
         public int? ArticleCategoryId { get; set; }
-
+        public int Visit { get; set; }
         public virtual ArticleCategory ArticleCategory { get; set; }
 
     }
