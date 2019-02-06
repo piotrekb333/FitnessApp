@@ -24,6 +24,6 @@ export class ArticlesService {
   getArticleById(id: string) {
     const params = new HttpParams()
       .set('id', id.toString())
-    return this.http.get(this.config.apiEndpoint+'/articles', { params });
+    return this.http.get(this.config.apiEndpoint +'/articles/GetEnabledArticle', { params });
   }
 }

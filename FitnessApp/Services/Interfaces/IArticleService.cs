@@ -9,5 +9,6 @@ namespace FitnessApp.Services.Interfaces
     public interface IArticleService
     {
         IEnumerable<ArticleDto> GetEnabledArticles();
+        ArticleDto GetEnabledArticle(int id);
     }
 }

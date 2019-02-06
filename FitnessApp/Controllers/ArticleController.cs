@@ -26,5 +26,12 @@ namespace FitnessApp.Controllers
             var result = _articleService.GetEnabledArticles();
             return Ok(result);
         }
+
+        [HttpGet("enabledArticle")]
+        public IActionResult EnabledArticle(int id)
+        {
+            var result = _articleService.GetEnabledArticle(id);
+            return Ok(result);
+        }
     }
 }

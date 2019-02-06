@@ -28,5 +28,12 @@ namespace FitnessApp.Services.Implementations
             IEnumerable<ArticleDto> articlesDto = _mapper.Map<IEnumerable<ArticleDto>>(articles);
             return articlesDto;
         }
+
+        public ArticleDto GetEnabledArticle(int id)
+        {
+            var article = _articleRepository.GetById(id);
+            ArticleDto articleDto = _mapper.Map<ArticleDto>(article);
+            return articleDto;
+        }
     }
 }

@@ -78,6 +78,8 @@ namespace FitnessApp
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<INewsletterRepository, NewsletterRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
 
 
             //-----SERVICES-----
@@ -86,6 +88,8 @@ namespace FitnessApp
             services.AddTransient<INewsletterService, NewsletterService>();
             services.AddTransient<ITimeProvider, DateTimeProvider>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
