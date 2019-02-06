@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Models.Entities;
+using Models.ServiceModels.Article;
+using Models.ServiceModels.ArticleCategory;
 using Models.ServiceModels.Calculator;
 using Models.ServiceModels.Product;
 using Models.ServiceModels.User;
@@ -23,6 +25,12 @@ namespace FitnessApp.Configuration
             CreateMap<Product, ProductDto>();
             CreateMap<AddProductModel, Product>();
             CreateMap<UpdateProductModel, Product>();
+
+            CreateMap<Article, ArticleDto>();
+            CreateMap<ArticleDto, Article>();
+
+            CreateMap<ArticleCategory, ArticleCategoryDto>();
+            CreateMap<ArticleCategoryDto, ArticleCategory>();
         }
     }
 }
