@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Repositories.Interfaces;
+using FitnessApp.Configuration;
 using FitnessApp.Services.Implementations;
 using FitnessApp.Services.Interfaces;
 using Models.Entities;
@@ -23,9 +24,22 @@ namespace FitnessAppTests.Services
             Mock<IMapper> mockMapper = new Mock<IMapper>();
             Mock<ITimeProvider> timeProvider = new Mock<ITimeProvider>();
             timeProvider.Setup(m => m.UtcNow).Returns(new DateTime(2019, 01, 01));
-            mockMapper.SetReturnsDefault(new List<ArticleCategoryDto>());
+
+
             Mock<IArticleCategoryRepository> repository = new Mock<IArticleCategoryRepository>();
-            repository.Setup(x => x.GetByCondition(It.IsAny<Expression<Func<ArticleCategory, bool>>>())).Returns(new List<ArticleCategory>() { new ArticleCategory { Id=2,Name="test"} });
+            var art = new ArticleCategory { Id = 2, Name = "test" };
+            var artDto = new ArticleCategoryDto { Id = 2, Name = "test" };
+
+            var listArt = new List<ArticleCategory>();
+            var listArtDto = new List<ArticleCategoryDto>();
+            listArtDto.Add(artDto);
+            listArt.Add(art);
+            
+            mockMapper.Setup(x => x.Map<IEnumerable<ArticleCategoryDto>>(It.IsAny<IEnumerable<ArticleCategory>>()))
+             .Returns(listArtDto);
+             
+            repository.Setup(x => x.GetAll()).Returns(listArt);
+
             IArticleCategoryService serviceModel = new ArticleCategoryService(mockMapper.Object, repository.Object, timeProvider.Object);
             var result = serviceModel.GetAllArticleCategories();
 

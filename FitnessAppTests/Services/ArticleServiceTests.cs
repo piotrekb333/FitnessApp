@@ -42,14 +42,19 @@ namespace FitnessAppTests.Services
             Mock<IMapper> mockMapper = new Mock<IMapper>();
             Mock<ITimeProvider> timeProvider = new Mock<ITimeProvider>();
             timeProvider.Setup(m => m.UtcNow).Returns(new DateTime(2019, 01, 01));
-            mockMapper.SetReturnsDefault(new Newsletter());
-            Mock<IArticleRepository> articleRepo = new Mock<IArticleRepository>();
-
-            articleRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(new Article
+            var art = new Article
             {
                 Id = 1,
                 Enabled = true
-            });
+            };
+            var artDto = new ArticleDto
+            {
+                Id = 1
+            };
+            Mock < IArticleRepository> articleRepo = new Mock<IArticleRepository>();
+            mockMapper.Setup(x => x.Map<ArticleDto>(It.IsAny<Article>()))
+            .Returns(artDto);
+            articleRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(art);
             IArticleService serviceModel = new ArticleService(mockMapper.Object, articleRepo.Object, timeProvider.Object);
             var result = serviceModel.GetEnabledArticle(1);
 

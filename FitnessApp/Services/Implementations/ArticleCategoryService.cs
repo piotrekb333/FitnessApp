@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Repositories.Interfaces;
 using FitnessApp.Services.Interfaces;
+using Models.Entities;
 using Models.ServiceModels.ArticleCategory;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace FitnessApp.Services.Implementations
 
         public IEnumerable<ArticleCategoryDto> GetAllArticleCategories()
         {
-            var categories = _articleCategoryRepository.GetAll();
+            IEnumerable<ArticleCategory> categories = _articleCategoryRepository.GetAll();
             IEnumerable<ArticleCategoryDto> categoriesDto = _mapper.Map<IEnumerable<ArticleCategoryDto>>(categories);
             return categoriesDto;
         }
